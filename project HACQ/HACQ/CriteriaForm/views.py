@@ -23,12 +23,24 @@ def institute_fill(request):
     'stakeholders_meetings': stakeholders_meetings, 'seminars_conferences':seminars_conferences }
     return render(request,'form\institution Details 1.html',forms)
 
+def Criteria2_fill(request):
+    return render(request, 'form/Criteria2.html')
+
+def Criteria4_fill(request):
+    return render(request, 'form/Criteria4.html')
+
+def Criteria6_fill(request):
+    return render(request, 'form/Criteria6.html')
+
+def Criteria7_fill(request):
+    return render(request, 'form/Criteria7.html')
+
 def form_details(request):
     form=m.Institute.objects.order_by('-pk')
     context ={'form1': form }
     return render(request, 'form/list.html',context)
 
-def save(request):
+def save_institution_details(request):
     if request.method == 'POST':
         form=f.InstituteForm(request.POST)
         if form.is_valid():# and cycle1.is_valid() and cycle2.is_valid() and cycle3.is_valid() and cycle4.is_valid():
