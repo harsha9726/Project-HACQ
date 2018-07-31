@@ -1,0 +1,17 @@
+h1 {
+    background-color: red;
+}
+
+
+p {
+    background-color: yellow;
+}
+div.container {
+    background-color:lightblue;
+    position: absolute;
+    top: 80px;
+    right: 0;
+    width: auto;
+    height: auto;
+    border: 3px solid #73AD21;
+}

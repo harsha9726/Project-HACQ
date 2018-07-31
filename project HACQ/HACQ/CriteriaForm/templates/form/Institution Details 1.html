@@ -1,0 +1,185 @@
+{% extends 'form/start.html' %}
+{% block content %}
+
+<body>
+<div class="container">
+
+<form method="POST" action="{% url 'save' %}">
+  {% csrf_token %}
+<h1>Institution Details</h1>
+
+1.1 Name of the Institution&nbsp;&nbsp; {{ form.name }}<br><br>
+
+1.2 Address Line 1&nbsp;&nbsp;{{form.address_line_1}}<br><br>
+
+Address Line 2&nbsp;&nbsp;{{form.address_line_2}}<br><br>
+
+City/Town&nbsp;&nbsp;{{form.city}}<br><br>
+
+State &nbsp;&nbsp;{{form.state}}<br><br>
+
+Pin Code&nbsp;&nbsp;{{form.pincode}}<br><br>
+
+Institution e-mail address&nbsp;&nbsp;{{form.college_email_address}}<br><br>
+
+Contact Nos&nbsp;&nbsp;{{form.college_contact_no}}<br><br>
+
+Name of the Head of the Institution:&nbsp;&nbsp;{{form.head_of_institute}}<br><br>
+
+Tel. No. with STD Code: &nbsp;&nbsp;{{form.telephone}}<br><br>
+
+Mobile &nbsp;&nbsp;{{form.college_mobile}}<br><br>
+
+Name of IQAC Co-ordinator &nbsp;&nbsp;{{form.iqac_coordinator}}<br><br>
+
+Mobile&nbsp;&nbsp;{{form.coordinator_mobile}}<br><br>
+
+IQAC e-mail address &nbsp;&nbsp;{{form.iqac_email}}<br><br>
+
+1.3 NAAC Track ID (For ex. MHCOGN 18879)&nbsp;&nbsp;{{form.naac_track_id}} <br><br>
+
+1.4 NAAC Executive Committee No. & Date:&nbsp;&nbsp;{{form.naac_executive_committe_date}}<br>
+
+(For Example EC/32/A&A/143 dated 3-5-2004. <br>
+This EC no. is available in the right corner- bottom <br>
+of your institution's Accreditation Certificate)<br><br>
+
+1.5 Website address:&nbsp;&nbsp;{{form.college_website}}<br><br>
+
+Web-link of the AQAR&nbsp;&nbsp;{{form.aqar_weblink}}<br><br>
+
+<table style="width:50%">
+  <tr>
+    <th>Sl. No:</th>
+    <td>Cycle</td>
+    <td>Grade</td>
+    <td>CGPA</td>
+    <td>Year of Accrediation</td>
+    <td>Validity Period</td>
+  </tr>
+  <tr>
+    <th>1</th>
+    <td>1st cycle</td>
+    <td>{{cycle1.grade}}</td>
+    <td>{{cycle1.cgpa}}</td>
+    <td>{{cycle1.year_of_accreditation}}</td>
+    <td>{{cycle1.validity_period}}</td>
+  </tr>
+  <tr>
+    <th>2</th>
+    <td>2st cycle</td>
+    <td>{{cycle2.grade}}</td>
+    <td>{{cycle2.cgpa}}</td>
+    <td>{{cycle2.year_of_accreditation}}</td>
+    <td>{{cycle2.validity_period}}</td>
+  </tr>
+  <tr>
+    <th>3</th>
+    <td>3st cycle</td>
+    <td>{{cycle3.grade}}</td>
+    <td>{{cycle3.cgpa}}</td>
+    <td>{{cycle3.year_of_accreditation}}</td>
+    <td>{{cycle3.validity_period}}</td>
+  </tr>
+  <tr>
+    <th>4</th>
+    <td>4st cycle</td>
+    <td>{{cycle4.grade}}</td>
+    <td>{{cycle4.cgpa}}</td>
+    <td>{{cycle4.year_of_accreditation}}</td>
+    <td>{{cycle4.validity_period}}</td>
+  </tr>
+</table>
+
+1.7 Date of Establishment of IQAC :	&nbsp;&nbsp;&nbsp;&nbsp;DD/MM/YYYY{{form.date_of_iqac_establishment}}<br><br>
+
+1.8 AQAR for the year (for example 2010-11) {{form.aqar_for_year}}<br><br>
+
+1.9 Details of the previous year's AQAR submitted to NAAC after the latest Assessment and<br> Accreditation by NAAC ((for example AQAR 2010-11submitted to NAAC on 12-10-2011)<br><br>
+i. AQAR {{form.aqar_submission_1}}(DD/MM/YYYY)<br>
+ii. AQAR {{form.aqar_submission_2}}(DD/MM/YYYY)<br>
+iii. AQAR {{form.aqar_submission_3}}(DD/MM/YYYY)<br>
+iv. AQAR {{form.aqar_submission_4}}(DD/MM/YYYY)<br><br>
+
+1.10 Institutional Status<br><br>
+University {{form.university}}<br><br>
+
+ Affiliated College{{form.Affiliated}}<br><br>
+
+Constituent  College{{form.Constituent}}<br><br>
+
+ Autonomous  College  of UG{{form.autonomous}}<br><br>
+
+ Regulatory Agency approved Institution{{form.regulatory_agency_approved}}<br>
+
+ (eg. AICTE, BCI, MCI, PCI, NCI)<br><br>
+
+ Type of Institution {{form.type_of_institution}}<br><br>
+
+Financial Status{{form.financial_status}}<br><br>
+
+ 1.11 Type of Faculty/Programme{{form.type_of_faculty}}<br><br>
+ others(specify){{form.type_of_faculty_others}}<br><br>
+1.12 Name of the Affiliating University (for the Colleges)&nbsp;&nbsp;{{ form.affiliating_university }}<br><br>
+
+
+IQAC funding{{ form.iqac_funding }}<br><br>
+Amount {{ form.iqac_funding_amount }}<br><br>
+
+<h1>2. IQAC Composition Activities</h1>
+  2.1 No. of Teachers {{ iqac_composition_activities.teachers }}<br><br>
+  2.2 No. of Administrative/Technical staff {{ iqac_composition_activities.administrative_staff }}<br><br>
+  2.3 No. of students		{{ iqac_composition_activities.students }}<br><br>
+  2.4 No. of Management representatives {{ iqac_composition_activities.management_representatives }}<br><br>
+  2.5 No. of Alumni {{ iqac_composition_activities.alumni }}<br><br>
+  2.6 No. of any other stakeholder and <br>
+        community representatives  {{ iqac_composition_activities.stakeholder_community_representatives }}<br><br>
+  2.7 No. of Employers/ Industrialists	{{ iqac_composition_activities.employers_industrialists }}<br><br>
+  2.8  No. of other External Experts 	{{ iqac_composition_activities.external_experts }}<br><br>
+  2.9 Total No. of members {{ iqac_composition_activities.total_members }}<br><br>
+  2.10 No. of IQAC meetings held {{ iqac_composition_activities.iqac_meetings_held }}<br><br>
+  2.11 No. of meetings with various stakeholders<br><br>
+  <table style="align:center" >
+  {{ stakeholders_meetings.as_table }}
+  </table>
+  2.12 Has IQAC received any funding from UGC during the year?{{ iqac_composition_activities.funding_received }}<br><br>
+  If yes, mention the amount {{ iqac_composition_activities.funding_amount }}<br><br>
+  2.13 Seminars and Conferences (only quality related)<br><br>
+  <table>
+    {{ seminars_conferences.as_table }}
+  </table>
+  2.14 Significant Activities and contributions made by IQAC <br><br>
+  {{ iqac_composition_activities.activites_contributions }}<br><br>
+  2.15 Plan of Action by IQAC/Outcome<br><br>
+  The plan of action chalked out by the IQAC in the beginning of the year towards quality<br>
+         enhancement and the outcome achieved by the end of the year *<br><br>
+         <table style="align:center">
+           <tr>
+             <td>
+               Plan of Action
+             </td>
+             <td>
+               Achivements
+             </td>
+           </tr>
+           <tr>
+             <td>
+               {{ iqac_composition_activities.plan_of_action }}
+             </td>
+             <td>
+               {{ iqac_composition_activities.achivements_by_year }}
+             </td>
+           </tr>
+         </table><br>
+  * Attach the Academic Calendar of the year as Annexure. <br><br>
+
+  2.15 Whether the AQAR was placed in statutory body {{ iqac_composition_activities.aqar_statutory_body }}<br><br>
+  {{ iqac_composition_activities.aqar_statutory_body_yes }}<br><br>
+
+  Provide the details of the action taken
+  {{ iqac_composition_activities.plan_of_action_taken }}
+
+<input type="submit" value="Submit">
+</form>
+</div>
+{% endblock %}
