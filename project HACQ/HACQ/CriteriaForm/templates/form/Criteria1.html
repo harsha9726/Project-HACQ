@@ -1,0 +1,127 @@
+{% extends 'form/start.html' %}
+{% block content %}
+
+<form method="POST" action="{% url 'Criteria1_fill' %}">
+<h2>Criteria 1</h2>
+<p>1.1 Details about Academic Programmes</p>
+
+<table class="table">
+
+  <tr>
+    <th>level of the programme</th>
+    <th>number of existing programmes</th>
+    <th>number of programmes added during the year</th>
+    <th>number of self-financing programmes</th>
+    <th>number of value added/career oriented programmes</th>
+    </tr>
+    <tr>
+    <th>PhD</th>
+    <td></td>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+
+
+
+  </tr>
+  <tr>
+    <th>PG</th>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+  </tr>
+
+
+  <tr>
+    <th>UG</th>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+  </tr>
+  <tr>
+    <th>PG Diploma</th>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+  </tr>
+    <tr>
+    <th>Advanced Diploma</th>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+  </tr>
+
+ <tr>
+    <th>Diploma</th>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+  </tr>
+ <tr>
+    <th>Certificate</th>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+  </tr>
+ <tr>
+    <th>Others</th>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+  </tr>
+ <tr>
+    <th>total</th>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+    <td> </td>
+  </tr>
+</table>
+<p>1.2 i)Flexibility of the Curriculum:CBCS/Core/Elective option/Open options<br>
+ii)Pattern of programmes:</p>
+<table class="table">
+
+  <tr>
+    <th>Pattern</th>
+    <th>Number of programmes</th>
+  </tr>
+  <tr>
+    <td>semester</td>
+    <td>{{criteria1.semester}}</td>
+  </tr>
+  <tr>
+    <td>Trimester</td>
+    <td>{{criteria1.trimester}}</td>
+  </tr>
+  <tr>
+    <td>Annual</td>
+    <td>{{criteria1.annual}}</td>
+  </tr>
+  </table>
+  <p>1.3</p>
+
+  <!--make below as check groups-->
+
+  <b>Feedback from stakeholders*(On all aspects):</b>{{criteria1.Feedback_stakeholders}}
+
+  <b>Mode of feedback:</b>{{criteria1.Mode_of_feedback}}
+
+
+  1.4 Whether there is any revision/update of regulation or syllabi,if yes,mention their salient aspects<br>
+  {{criteria1.revision_update_syllabi}}
+  <br><br>
+
+
+  1.5 Any new Department/Centre introduced during the year.If yes,give details.<br>
+  {{criteria1.Department_center}}
+  <br><br>
+</form>
+
+{% endblock %}
