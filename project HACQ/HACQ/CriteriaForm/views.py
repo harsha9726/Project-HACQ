@@ -9,42 +9,20 @@ def index(request):
     return render(request, 'form/home.html')
 
 def institute_fill(request):
-    form=f.InstituteForm()
-    cycle1=f.Cycle1Form()
-    cycle2=f.Cycle2Form()
-    cycle3=f.Cycle3Form()
-    cycle4=f.Cycle4Form()
-    special_status=f.Special_statusForm()
-    iqac_composition_activities=f.IQAC_composition_activitiesForm()
-    stakeholders_meetings = f.Stakeholders_meetingsForm()
-    seminars_conferences = f.Seminars_conferencesForm()
-    forms = {'form':form, 'cycle1':cycle1, 'cycle2':cycle2, 'cycle3': cycle3, 'cycle4' : cycle4,
-    'special_status': special_status, 'iqac_composition_activities': iqac_composition_activities,
-    'stakeholders_meetings': stakeholders_meetings, 'seminars_conferences':seminars_conferences }
-    return render(request,'form\institution Details 1.html',forms)
-
-def Criteria2_fill(request):
-    return render(request, 'form/Criteria2.html')
-
-def Criteria4_fill(request):
-    return render(request, 'form/Criteria4.html')
-
-def Criteria6_fill(request):
-    return render(request, 'form/Criteria6.html')
-
-def Criteria7_fill(request):
-    return render(request, 'form/Criteria7.html')
-
-def form_details(request):
-    form=m.Institute.objects.order_by('-pk')
-    context ={'form1': form }
-    return render(request, 'form/list.html',context)
-
-def save_institution_details(request):
     if request.method == 'POST':
         form=f.InstituteForm(request.POST)
-        if form.is_valid():# and cycle1.is_valid() and cycle2.is_valid() and cycle3.is_valid() and cycle4.is_valid():
-            new_institute = m.Institute(name = request.POST.get('name'),
+        cycle1 = f.Cycle1Form(request.POST)
+        cycle2 = f.Cycle2Form(request.POST)
+        cycle3 = f.Cycle3Form(request.POST)
+        cycle4 = f.Cycle4Form(request.POST)
+        IQAC_composition_activities = f.IQAC_composition_activitiesForm(request.POST)
+        Stakeholders_meetings = f.Stakeholders_meetingsForm(request.POST)
+        Seminars_conferences = f.Seminars_conferencesForm(request.POST)
+        if (form.is_valid() and cycle1.is_valid() and cycle2.is_valid() and cycle3.is_valid() and cycle4.is_valid() and IQAC_composition_activities.is_valid()
+        and Stakeholders_meetings.is_valid() and Seminars_conferences.is_valid()):
+            new_institute = form.cleaned_data
+            '''
+            m.Institute(name = request.POST.get('name'),
                                         address_line_1=request.POST.get('address_line_1'),
                                         address_line_2=request.POST.get('address_line_2'),
                                         city=request.POST.get('city'),
@@ -80,23 +58,38 @@ def save_institution_details(request):
                                         affiliating_university = request.POST.get('affiliating_university'),
                                         iqac_funding = request.POST.get('iqac_funding'),
                                         iqac_funding_amount = request.POST.get('iqac_funding_amount'))
-            new_cycle1 = m.Cycle1(grade = request.POST.get('grade'),
+                                        '''
+            new_cycle1 = cycle1.cleaned_data
+            '''
+            m.Cycle1(grade = request.POST.get('grade'),
                                     cgpa= request.POST.get('cgpa'),
                                     year_of_accreditation=request.POST.get('year_of_accreditation'),
                                     validity_period=request.POST.get('validity_period'))
-            new_cycle2 = m.Cycle2(grade = request.POST.get('grade'),
+            '''
+            new_cycle2 = cycle2.cleaned_data
+            '''
+            m.Cycle2(grade = request.POST.get('grade'),
                                     cgpa= request.POST.get('cgpa'),
                                     year_of_accreditation=request.POST.get('year_of_accreditation'),
                                     validity_period=request.POST.get('validity_period'))
-            new_cycle3 = m.Cycle3(grade = request.POST.get('grade'),
+            '''
+            new_cycle3 = cycle3.cleaned_data
+            '''
+            m.Cycle3(grade = request.POST.get('grade'),
                                     cgpa= request.POST.get('cgpa'),
                                     year_of_accreditation=request.POST.get('year_of_accreditation'),
                                     validity_period=request.POST.get('validity_period'))
-            new_cycle4 = m.Cycle4(grade = request.POST.get('grade'),
+            '''
+            new_cycle4 = cycle4.cleaned_data
+            '''
+            m.Cycle4(grade = request.POST.get('grade'),
                                     cgpa= request.POST.get('cgpa'),
                                     year_of_accreditation=request.POST.get('year_of_accreditation'),
                                     validity_period=request.POST.get('validity_period'))
-            new_iqac_composition_activities =m.IQAC_composition_activities(teachers = request.POST.get('teachers'),
+            '''
+            new_iqac_composition_activities =IQAC_composition_activities.cleaned_data
+            '''
+            m.IQAC_composition_activities(teachers = request.POST.get('teachers'),
                                                                             administrative_staff = request.POST.get('administrative_staff'),
                                                                             students = request.POST.get('students'),
                                                                             management_representatives = request.POST.get('management_representatives'),
@@ -114,17 +107,24 @@ def save_institution_details(request):
                                                                             aqar_statutory_body = request.POST.get('aqar_statutory_body'),
                                                                             aqar_statutory_body_yes = request.POST.get('aqar_statutory_body_yes'),
                                                                             plan_of_action_taken = request.POST.get('plan_of_action_taken'))
-            new_stakeholders_meentings = m.Stakeholders_meetings(total = request.POST.get('total'),
+                                                                            '''
+            new_stakeholders_meentings = Stakeholders_meetings.cleaned_data
+            '''
+            m.Stakeholders_meetings(total = request.POST.get('total'),
                                                                 faculty = request.POST.get('faculty'),
                                                                 nonteaching_staff_students = request.POST.get('nonteaching_staff_students'),
                                                                 alumni = request.POST.get('alumni'),
                                                                 others = request.POST.get('others'))
-            new_seminars_conferences = m.Seminars_conferences(total = request.POST.get('total'),
+            '''
+            new_seminars_conferences = Seminars_conferences.cleaned_data
+            '''
+            m.Seminars_conferences(total = request.POST.get('total'),
                                                                 international = request.POST.get('international'),
                                                                 national = request.POST.get('national'),
                                                                 state = request.POST.get('state'),
                                                                 institute = request.POST.get('institute'),
                                                                 themes = request.POST.get('themes'))
+            '''
             new_institute.save()
             new_cycle1.save()
             new_cycle2.save()
@@ -136,3 +136,70 @@ def save_institution_details(request):
             return redirect('details')
         else:
             return render(request,'form/start.html')
+
+    form=f.InstituteForm()
+    cycle1=f.Cycle1Form()
+    cycle2=f.Cycle2Form()
+    cycle3=f.Cycle3Form()
+    cycle4=f.Cycle4Form()
+    special_status=f.Special_statusForm()
+    iqac_composition_activities=f.IQAC_composition_activitiesForm()
+    stakeholders_meetings = f.Stakeholders_meetingsForm()
+    seminars_conferences = f.Seminars_conferencesForm()
+    forms = {'form':form, 'cycle1':cycle1, 'cycle2':cycle2, 'cycle3': cycle3, 'cycle4' : cycle4,
+    'special_status': special_status, 'iqac_composition_activities': iqac_composition_activities,
+    'stakeholders_meetings': stakeholders_meetings, 'seminars_conferences':seminars_conferences }
+    return render(request,'form/Institution Details 1.html',forms)
+
+def Criteria1_fill(request):
+    criteria1 = f.Criteria1Form()
+    phd = f.PhDForm()
+    pg = f.PGForm()
+    ug = f.UGForm()
+    pg_diploma = f.PG_DiplomaForm()
+    advanced_diploma = f.Advanced_DiplomaForm()
+    diploma = f.DiplomaForm()
+    certificate = f.CertificateForm()
+    others = f.OthersForm()
+    interdisciplinary = f.InterdisciplinaryForm()
+    innovative = f.InnovativeForm()
+    forms = {'criteria1':criteria1, 'phd':phd, 'pg':pg, 'ug':ug, 'pg_diploma':pg_diploma,
+    'advanced_diploma':advanced_diploma, 'diploma':diploma, 'certificate':certificate,
+    'others':others, 'interdisciplinary':interdisciplinary, 'innovative':innovative}
+    return render(request, 'form/Criteria1.html', forms)
+
+def Criteria2_fill(request):
+    criteria2 = f.Criteria2Form()
+    permanent_faculty = f.Permanent_facultyForm()
+    faculty_position = f.Faculty_PositionsForm()
+    faculty_attended = f.Faculty_attendedForm()
+    faculty_presented_papers = f.Faculty_Presented_PapersForm()
+    faculty_resources_persons = f.Faculty_Resources_PersonsForm()
+    course_programme_distribution_of_percentage = f.Course_programme_distribution_of_percentageForm()
+    administrative_staff = f.Administrative_staffForm()
+    technical_staff = f.Technical_staffForm()
+    forms = {'criteria2':criteria2, 'permanent_faculty':permanent_faculty, 'faculty_position':faculty_position,
+    'faculty_attended':faculty_attended, 'faculty_presented_papers':faculty_presented_papers, 'faculty_resources_persons':faculty_resources_persons,
+    'course_programme_distribution_of_percentage':course_programme_distribution_of_percentage,
+    'administrative_staff':administrative_staff, 'technical_staff':technical_staff}
+    return render(request, 'form/Criteria2.html',forms)
+
+def Criteria3_fill(request):
+    return render(request, 'form/Criteria3.html')
+
+def Criteria4_fill(request):
+    return render(request, 'form/Criteria4.html')
+
+def Criteria5_fill(request):
+    return render(request, 'form/Criteria5.html')
+
+def Criteria6_fill(request):
+    return render(request, 'form/Criteria6.html')
+
+def Criteria7_fill(request):
+    return render(request, 'form/Criteria7.html')
+
+def form_details(request):
+    form=m.Institute.objects.order_by('-pk')
+    context ={'form1': form }
+    return render(request, 'form/list.html',context)

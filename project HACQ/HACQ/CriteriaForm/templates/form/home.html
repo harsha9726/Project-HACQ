@@ -1,7 +1,18 @@
 {% extends 'form/start.html' %}
 {% block content %}
 <h1 style="align:center">Welcome to Hitam IQAC</h1>
-<form action="{% url 'institute_fill' %}">
-  <input type="submit" value="Form filling" >
-</form>
+
+  <a class="btn btn-secondary" href="{% url 'institute_fill' %}" role="button"><b>Institution Details</b></a>
+  <br><br>
+  <a class="btn btn-secondary" href="{% url 'Criteria1_fill' %}" role="button"><b>Criteria 1</b></a>
+  <a class="btn btn-secondary" href="{% url 'Criteria2_fill' %}" role="button"><b>Criteria 2</b></a>
+  <a class="btn btn-secondary" href="{% url 'Criteria3_fill' %}" role="button"><b>Criteria 3</b></a>
+  <a class="btn btn-secondary" href="{% url 'Criteria4_fill' %}" role="button"><b>Criteria 4</b></a>
+  <br><br>
+  <a class="btn btn-secondary" href="{% url 'Criteria5_fill' %}" role="button"><b>Criteria 5</b></a>
+  <a class="btn btn-secondary" href="{% url 'Criteria6_fill' %}" role="button"><b>Criteria 6</b></a>
+  <a class="btn btn-secondary" href="{% url 'Criteria7_fill' %}" role="button"><b>Criteria 7</b></a>
+
+
+
 {% endblock %}

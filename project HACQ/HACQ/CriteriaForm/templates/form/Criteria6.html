@@ -1,24 +1,12 @@
+{% extends 'form/start.html' %}
+{% load static %}
 
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-}
-th, td {
-    padding: 20px;
-    text-align: left;
-}
-</style>
-<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/B95917D0-6A62-4E41-B137-6D783F2CFF9A/main.js" charset="UTF-8"></script></head>
-<body>
+{% block content %}
 <h2>Criterion-VI</h2>
 <h2>6.Governance,Leadership and Management</h2>
 <p>6.1 state the Vision and Mission of the institution</p>
 
-<table style="width:65%">
+<table>
 
 <tr>
 <td></td>
@@ -26,7 +14,7 @@ th, td {
 </table>
 <p>6.2 Does the Institution has a management Information System</p>
 
-<table style="width:65%">
+<table>
 
 <tr>
 <td></td>
@@ -98,25 +86,25 @@ th, td {
 </table>
 <p>6.4 Welfare schemes for</p>
 <table style="width:50%">
-  
-  
+
+
   <tr>
     <td>Teaching</td>
     <td>   </td>
-    
+
   </tr>
   <tr>
     <td>Non teaching</td>
     <td></td>
-    
+
   </tr>
    <tr>
     <td>Students</td>
-    
+
     <td></td>
-    
+
   </tr>
- 
+
 </table>
 <p>6.5 Total corpus fund generated</p>
 <table style="width:15%">
@@ -132,26 +120,26 @@ th, td {
 <p>6.7 Whether Academic and Administrative Audit(AAA) has been done?  </p>
 <table style="width:100%">
   <tr>
-  
-    
+
+
     <th rowspan="2">Audit Type </th>
-   
+
     <th colspan="2">External</th>
     <th colspan="2">Internal</th>
-   
+
   </tr>
   <tr>
- 
-  
+
+
     <td>Yes/No</td>
     <td>Agency</td>
-  
-   
+
+
     <td>Yes/No</td>
     <td>Agency</td>
-  
-   
-    
+
+
+
   </tr>
   <tr>
     <td>Academic</td>
@@ -159,7 +147,7 @@ th, td {
     <td></td>
     <td></td>
     <td></td>
-   
+
   </tr>
   <tr>
     <td>Administrative</td>
@@ -167,18 +155,18 @@ th, td {
     <td></td>
     <td></td>
     <td></td>
-    
+
   </tr>
-   
+
   </table>
   <p>6.8 Does the University/Autonomous College declare results within 30days?</p>
-  
+
   For UG Programmes:<input type="radio" name="environment"  value="yes" > yes
   <input type="radio" name="environment" value="no"> no<br>
-  
+
   For PG Programmes:<input type="radio" name="environment"  value="yes" > yes
   <input type="radio" name="environment" value="no"> no<br>
-  
+
 <p>6.9 What efforts are made by the University/Autonomous College for Examination Reforms?</p>
 <table style="width:50%">
 
@@ -221,7 +209,4 @@ th, td {
 <td></td>
 </tr>
 </table>
-</body>
-</html>
-CRITERIA 6.FINAL
-Displaying CRITERIA 6.FINAL.
+{% endblock %}

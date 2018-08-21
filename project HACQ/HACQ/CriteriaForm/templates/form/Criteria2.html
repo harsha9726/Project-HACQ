@@ -1,93 +1,85 @@
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-table, th, td {
- border:1px solid black;
- border-collapse:collapse;
-  
-     padding: 10px;
-      
-</style>
-<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/B95917D0-6A62-4E41-B137-6D783F2CFF9A/main.js" charset="UTF-8"></script><script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/B95917D0-6A62-4E41-B137-6D783F2CFF9A/main.js" charset="UTF-8"></script></head>
-<body> 
+{% extends 'form/start.html' %}
+{% block content %}
+<form method="POST" action="{% url 'Criteria2_fill' %}">
  <h2> CRITERIA 2 </h2>
 <h2>Teaching,Learning,Evaluation</h2>
 <p>2.1 Total no. of permanant faculty</p>
-<table style="width:100%">
+<table class="table">
     <th>Total</th>
-    <th>Assistant professors</th> 
+    <th>Assistant professors</th>
     <th>Associate professors</th>
     <th>Professors</th>
     <th>Others</th>
   </tr>
   <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>{{permanent_faculty.total}}</td>
+    <td>{{permanent_faculty.asst_professors}}</td>
+    <td>{{permanent_faculty.associate_professors}}</td>
+    <td>{{permanent_faculty.professors}}</td>
+    <td>{{permanent_faculty.others}}</td>
   </tr>
-  
- 
+
+
 </table>
 
 <p>
-<form action="/action_page.php">
+
   2.2 No. of permanent faculty with Ph.D.
   <input name="firstname" type="text">
   <br><br>
- </form>
 
 <p>2.3  No. of faculty positions recruited(R) and vacant(V) during the year</p>
-<table style="width:100%">
- 
+<table class="table">
+
   <tr>
-    <th colspan="2">Asst.Professors</th>
-    <th colspan="2">Associate Professors</th>
-    <th colspan="2">Professors</th>
-    <th colspan="2">Others</th>
-    <th colspan="2">Total</th>
+    <th>Position</th>
+    <th>R</th>
+    <th>V</th>
   </tr>
   <tr>
-    <td>R</td>
-    <td>V</td>
-    <td>R</td>
-    <td>V</td>
-    <td>R</td>
-    <td>V</td>
-    <td>R</td>
-    <td>V</td>
-    <td>R</td>
-    <td>V</td>
+    <th>Asst.Professor</th>
+    <td>{{faculty_position.asst_professor_recruited}}</td>
+    <td>{{faculty_position.asst_professor_vacant}}</td>
   </tr>
   <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+<th>Associate Professor</th>
+    <td>{{faculty_position.associate_professor_recruited}}</td>
+    <td>{{faculty_position.associate_professor_vacant}}</td>
   </tr>
-  
+  <tr>
+    <th>Professor</th>
+    <td>{{faculty_position.professor_recruited}}</td>
+    <td>{{faculty_position.professor_vacant}}</td>
+  </tr>
+  <tr>
+    <th>Others</th>
+    <td>{{faculty_position.others_recruited}}</td>
+    <td>{{faculty_position.others_vacant}}</td>
+  </tr>
+  <tr>
+    <th>Total</th>
+    <td>{{faculty_position.total_recruited}}</td>
+    <td>{{faculty_position.total_vacant}}</td>
+  </tr>
+
 </table>
 
 <p>2.4  No. of Guest and Visiting faculty and Temporary faculty</p>
-<table style="width:25%">
+<table class="table">
  <tr>
-<td></td>
-</tr>
-<tr>
-<td></td>
-</tr>
+   <th>Guest Faculty</th>
+   <th>Visiting Faculty</th>
+   <th>Temporary Faculty</th>
+ </tr>
+ <tr>
+   <td>{{criteria2.guest_faculty}}</td>
+   <td>{{criteria2.visiting_faculty}}</td>
+   <td>{{criteria2.temporary_faculty}}</td>
+ </tr>
 </table>
 <p>2.5 Faculty participation in conferences and symposia:</p>
-<table style="width:80%">
-  
+<table class="table">
+
   <tr>
     <th>No.of Faculty</th>
     <th>International level</th>
@@ -96,149 +88,127 @@ table, th, td {
   </tr>
   <tr>
     <td>Attended</td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>{{faculty_attended.international}}</td>
+    <td>{{faculty_attended.national}}</td>
+    <td>{{faculty_attended.state}}</td>
   </tr>
   <tr>
     <td>Presented</td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>{{faculty_presented_papers.international}}</td>
+    <td>{{faculty_presented_papers.national}}</td>
+    <td>{{faculty_presented_papers.state}}</td>
   </tr>
    <tr>
     <td>Resource Persons</td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>{{faculty_resources_persons.international}}</td>
+    <td>{{faculty_resources_persons.national}}</td>
+    <td>{{faculty_resources_persons.state}}</td>
   </tr>
 </table>
 <p>
-<form action="/action_page.php">
-  2.6 Innovative process adopted by the institution in Teaching and Learning:
-  <input name="firstname" type="text">
-  <br><br>
- </form>
-
-<p>
-<form action="/action_page.php">
+  2.6 Innovative process adopted by the institution in Teaching and Learning:<br>
+  {{criteria2.innovative_processes_introduced}}
+<br><br>
   2.7 Total No.of actual teaching days during this academic year
-  <input name="firstname" type="text">
+  {{criteria2.teaching_days}}
   <br><br>
- </form>
+</p>
 
 <p>
-<form action="/action_page.php">
+
   2.8 Examination/Evaluation Reforms initiated by the institution(for example:Open Book Examination,Bar Coding,Double Valuation,Photocopy,Online Multiple Choice Questions)
-  <input name="firstname" type="text">
+  {{criteria2.examination_evaluation_reforms_introduced}}
   <br><br>
- </form>
-
-
-
-
-
-<p>2.9 No.of faculty members involved in curriculum restructuring/revision/syllabus development as member of Board of Study/Faculty/Curriculum Development workshop </p>
-<table style="width:60%">
+2.9 No.of faculty members involved in curriculum restructuring/revision/syllabus development as member of Board of Study/Faculty/Curriculum Development workshop </p>
+<table class="table">
   <tr>
-    <th></th>
-    <th></th> 
-    <th></th>
-  </tr> 
- </table> 
- 
- <p>
-<form action="/action_page.php">
-  2.10 Average percentage of attendance of students 
-  <input name="firstname" type="text">
-  <br><br>
- </form>
+    <th>{{criteria2.faculty_restructuring}}</th>
+    <th>{{criteria2.faculty_revision}}</th>
+    <th>{{criteria2.faculty_syllabus_development}}</th>
+  </tr>
+ </table>
 
- 
- 
- 
+ <p>
+  2.10 Average percentage of attendance of students
+  {{criteria2.average_attendance_students}}
+  <br><br>
+
+</p>
+
+
 <p>2.11 Courses/Programme Wise distribution of pass percentage:  </p>
-<table style="width:100%">
+<table class="table">
   <tr>
     <th rowspan="2">Title of the programme</th>
-    <th rowspan="2">Total no.of students appeared</th> 
+    <th rowspan="2">Total no.of students appeared</th>
     <th colspan="5">Division</th>
   </tr>
-   
+
   <tr>
-    <td>Distinction%</td>
-    <td>I%</td>
-    <td>II%</td>
-    <td>III%</td>
-    <td>Pass%</td>
+    <th>Distinction%</th>
+    <th>I%</th>
+    <th>II%</th>
+    <th>III%</th>
+    <th>Pass%</th>
   </tr>
   <tr>
-   <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-   <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+   <td>{{course_programme_distribution_of_percentage.title}}</td>
+    <td>{{course_programme_distribution_of_percentage.total_no_of_students_appeared}}</td>
+    <td>{{course_programme_distribution_of_percentage.distinction}}</td>
+    <td>{{course_programme_distribution_of_percentage.first}}</td>
+    <td>{{course_programme_distribution_of_percentage.second}}</td>
+    <td>{{course_programme_distribution_of_percentage.third}}</td>
+    <td>{{course_programme_distribution_of_percentage.pass_p}}</td>
   </tr>
   </table>
   <p>2.12 How does IQAC Contribute/Monitor/Evaluate the Teaching and Learning Process:</p>
-  
+  {{criteria2.iqac_evaluation_teaching_learning_process}}
   <p>2.13 Initiatives Undertaken towards faculty development</p>
-  <table style="width:100%">
+  <table class="table">
   <tr>
     <th>Faculty/Staff Development Programmes</th>
-    <th>Number of faculty benefitted</th> 
+    <th>Number of faculty benefitted</th></tr>
   <tr>
     <td>Refreshers courses</td>
-    <td></td>
+    <td>{{criteria2.refresher_courses}}</td>
     </tr>
     <tr>
     <td>UGC_Faculty Improvement Programme</td>
-    <td></td>
+    <td>{{criteria2.UGC_faculty_improvement_programme}}</td>
     </tr>
     <tr>
     <td>HRD Programmes</td>
-    <td></td>
+    <td>{{criteria2.HRD_programmes}}</td>
     </tr>
     <tr>
     <td>Orientation Programmes</td>
-    <td></td>
+    <td>{{criteria2.orientation_programmes}}</td>
     </tr>
     <tr>
     <td>Faculty Exchange Programme</td>
-    <td></td>
+    <td>{{criteria2.faculty_exchange_programmes}}</td>
     </tr>
     <tr>
     <td>Staff Training Conducted by the University</td>
-    <td></td>
+    <td>{{criteria2.staff_training_university}}</td>
     </tr>
     <tr>
     <td>Staff Training Conducted by Other Institutions </td>
-    <td></td>
+    <td>{{criteria2.staff_training_institutions}}</td>
     </tr>
     <tr>
     <td>Summer/Winter Schools,Workshops,etc.</td>
-    <td></td>
+    <td>{{criteria2.summer_winter_schools_workshops}}</td>
     </tr>
     <tr>
     <td>Others</td>
-    <td></td>
+    <td>{{criteria2.others}}</td>
     </tr>
     </table>
     <p>2.14 Details of Administrative and Technical Staff</p>
-    <table style="width:100%">
+    <table class="table">
     <th>Category</th>
-    <th>number of Permanent Employees</th> 
+    <th>number of Permanent Employees</th>
     <th>number of Vacant Positions</th>
     <th>number of Permanent Positions filled during the year</th>
     <th>number of Positions filled temporarily</th>
@@ -246,22 +216,21 @@ table, th, td {
 
   <tr>
     <td>Administrative Staff</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>{{administrative_staff.permanent_employees}}</td>
+    <td>{{administrative_staff.vacant_positions}}</td>
+    <td>{{administrative_staff.permanent_positions_filled}}</td>
+    <td>{{administrative_staff.positions_filled_temporarily}}</td>
   </tr>
-  
+
   <tr>
     <td>Technical Staff</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>{{technical_staff.permanent_employees}}</td>
+    <td>{{technical_staff.vacant_positions}}</td>
+    <td>{{technical_staff.permanent_positions_filled}}</td>
+    <td>{{technical_staff.positions_filled_temporarily}}</td>
   </tr>
- 
+
   </table>
-  
-  
-</body>
-</html>
+<input type="submit" value="submit">
+</form>
+{% endblock %}

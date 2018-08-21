@@ -47,3 +47,134 @@ class Seminars_conferencesForm(ModelForm):
     class Meta:
         model = m.Seminars_conferences
         fields = ['total','international','national','state','institute','themes']
+
+
+#####=====================Criteria 1 forms=============########
+class Criteria1Form(ModelForm):
+    class Meta:
+        model = m.Criteria1
+        fields = ['semester','trimester','annual','revision_update_syllabi','Department_center','Feedback_stakeholders','Mode_of_feedback']
+class PhDForm(ModelForm):
+    class Meta:
+        model = m.PhD
+        fields = ['Number_of_existing_programmes','Number_of_programmes_added_during_year','Number_of_self_financing_programmes','Number_of_value_added_career_Oriented_programmes']
+class PGForm(ModelForm):
+    class Meta:
+        model = m.PG
+        fields = ['Number_of_existing_programmes','Number_of_programmes_added_during_year','Number_of_self_financing_programmes','Number_of_value_added_career_Oriented_programmes']
+class UGForm(ModelForm):
+    class Meta:
+        model = m.UG
+        fields = ['Number_of_existing_programmes','Number_of_programmes_added_during_year','Number_of_self_financing_programmes','Number_of_value_added_career_Oriented_programmes']
+class PG_DiplomaForm(ModelForm):
+    class Meta:
+        model = m.PG_Diploma
+        fields = ['Number_of_existing_programmes','Number_of_programmes_added_during_year','Number_of_self_financing_programmes','Number_of_value_added_career_Oriented_programmes']
+class Advanced_DiplomaForm(ModelForm):
+    class Meta:
+        model = m.Advanced_Diploma
+        fields = ['Number_of_existing_programmes','Number_of_programmes_added_during_year','Number_of_self_financing_programmes','Number_of_value_added_career_Oriented_programmes']
+class DiplomaForm(ModelForm):
+    class Meta:
+        model = m.Diploma
+        fields = ['Number_of_existing_programmes','Number_of_programmes_added_during_year','Number_of_self_financing_programmes','Number_of_value_added_career_Oriented_programmes']
+class CertificateForm(ModelForm):
+    class Meta:
+        model = m.Certificate
+        fields = ['Number_of_existing_programmes','Number_of_programmes_added_during_year','Number_of_self_financing_programmes','Number_of_value_added_career_Oriented_programmes']
+class OthersForm(ModelForm):
+    class Meta:
+        model = m.Others
+        fields = ['Number_of_existing_programmes','Number_of_programmes_added_during_year','Number_of_self_financing_programmes','Number_of_value_added_career_Oriented_programmes']
+class InterdisciplinaryForm(ModelForm):
+    class Meta:
+        model = m.Interdisciplinary
+        fields = ['Number_of_existing_programmes','Number_of_programmes_added_during_year','Number_of_self_financing_programmes','Number_of_value_added_career_Oriented_programmes']
+class InnovativeForm(ModelForm):
+    class Meta:
+        model = m.Innovative
+        fields = ['Number_of_existing_programmes','Number_of_programmes_added_during_year','Number_of_self_financing_programmes','Number_of_value_added_career_Oriented_programmes']
+class TotalForm(ModelForm):
+    class Meta:
+        model = m.Total
+        fields = ['Number_of_existing_programmes','Number_of_programmes_added_during_year','Number_of_self_financing_programmes','Number_of_value_added_career_Oriented_programmes']
+
+#####=====================Criteria 2 forms=============########
+class Criteria2Form(ModelForm):
+    class Meta:
+        model = m.Criteria2
+        fields = ['permanent_phd','guest_faculty','visiting_faculty','temporary_faculty','innovative_processes_introduced','teaching_days',
+                    'examination_evaluation_reforms_introduced','faculty_restructuring','faculty_revision','faculty_syllabus_development',
+                    'average_attendance_students','iqac_evaluation_teaching_learning_process','refresher_courses','UGC_faculty_improvement_programme',
+                    'HRD_programmes','orientation_programmes','faculty_exchange_programmes','staff_training_university','staff_training_institutions',
+                    'summer_winter_schools_workshops','others']
+class Permanent_facultyForm(ModelForm):
+    class Meta:
+        model = m.Permanent_faculty
+        fields = ['total','asst_professors','associate_professors','professors','others']
+class Faculty_PositionsForm(ModelForm):
+    class Meta:
+        model = m.Faculty_Positions
+        fields = ['asst_professor_recruited','asst_professor_vacant','associate_professor_recruited','associate_professor_vacant','professor_recruited',
+                    'professor_vacant','others_recruited','others_vacant','total_recruited','total_vacant']
+class Faculty_attendedForm(ModelForm):
+    class Meta:
+        model = m.Faculty_attended
+        fields = ['international','national','state']
+class Faculty_Presented_PapersForm(ModelForm):
+    class Meta:
+        model = m.Faculty_Presented_Papers
+        fields = ['international','national','state']
+class Faculty_Resources_PersonsForm(ModelForm):
+    class Meta:
+        model = m.Faculty_Resources_Persons
+        fields = ['international','national','state']
+class Course_programme_distribution_of_percentageForm(ModelForm):
+    class Meta:
+        model = m.Course_programme_distribution_of_percentage
+        fields = ['title','total_no_of_students_appeared','distinction','first','second','third','pass_p','form_serial']
+class Administrative_staffForm(ModelForm):
+    class Meta:
+        model = m.Administrative_staff
+        fields = ['permanent_employees','vacant_positions','permanent_positions_filled','positions_filled_temporarily']
+class Technical_staffForm(ModelForm):
+    class Meta:
+        model = m.Technical_staff
+        fields = ['permanent_employees','vacant_positions','permanent_positions_filled','positions_filled_temporarily']
+
+#####=====================Criteria 3 forms=============########
+class Criteria3Form(ModelForm):
+    class Meta:
+        model = m.Criteria3
+        fields = ['promoting_research','impactfactor_range','impactfactor_average','impactfactor_h_index','impactfactor_nos_in_scopus','books_isbn',
+                    'books_non_isbn','books_chapters_edited_books','revenue_consultancy','faculty_experts_chair_resource_persons',
+                    'collaborations_international','collaborations_national','collaborations_other','linkages_created']
+class Major_projectsForm(ModelForm):
+    class Meta:
+        model = m.Major_projects
+        fields = ['number_completed','number_ongoing','number_sanctioned','number_submitted','outlay_completed','outlay_ongoing','outlay_sanctioned',
+                    'outlay_submitted']
+class Minor_projectsForm(ModelForm):
+    class Meta:
+        model = m.Minor_projects
+        fields = ['number_completed','number_ongoing','number_sanctioned','number_submitted','outlay_completed','outlay_ongoing','outlay_sanctioned',
+                    'outlay_submitted']
+class Research_publicationsForm(ModelForm):
+    class Meta:
+        model = m.Research_publications
+        fields = ['peer_review_journals_international','peer_review_journals_national','peer_review_journals_others','non_peer_review_journals_international',
+                    'non_peer_review_journals_national','non_peer_review_journals_others','e_journals_international','e_journals_national','e_journals_others',
+                    'conference_proceedings_international','conference_proceedings_national','conference_proceedings_others']
+class University_department_fundsForm(ModelForm):
+    class Meta:
+        model = m.University_department_funds
+        fields = ['ugc_sap','cas','dst_fist','dpe','dbt_scheme_funds']
+class Funds_For_collegesForm(ModelForm):
+    class Meta:
+        model = m.Funds_For_colleges
+        fields = ['autonomy','cpe','dbt_star_scheme','inspire','ce','others']
+class Conferences_organized_institutionForm(ModelForm):
+    class Meta:
+        model = m.Conferences_organized_institution
+        fields = ['number_international','number_national','number_state','number_university','number_college','sponsor_international','sponsor_national',
+                    'sponsor_state','sponsor_university','sponsor_college']

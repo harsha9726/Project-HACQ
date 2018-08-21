@@ -4,7 +4,7 @@
 <body>
 <div class="container">
 
-<form method="POST" action="{% url 'save_institution_details' %}">
+<form method="POST" action="{% url 'institute_fill' %}">
   {% csrf_token %}
 <h1>Institution Details</h1>
 
@@ -48,7 +48,7 @@ of your institution's Accreditation Certificate)<br><br>
 
 Web-link of the AQAR&nbsp;&nbsp;{{form.aqar_weblink}}<br><br>
 
-<table style="width:50%">
+<table style="width:50%" class="table">
   <tr>
     <th>Sl. No:</th>
     <td>Cycle</td>
