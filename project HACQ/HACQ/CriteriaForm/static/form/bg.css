@@ -7,9 +7,15 @@ p {
     background-color: yellow;
 }
 div.container {
-    background-color:lightblue;
+  background-image: url("{% static 'images/images2.jpeg' %}");
+  opacity: 1;
+  background-repeat: no-repeat;
+  background-color: #cccccc;
+  background-position: center;
+  background-size: cover;
+  background-attachment:fixed;
     position: absolute;
-    top: 80px;
+    top: 80%;
     right: 0;
     width: auto;
     height: auto;

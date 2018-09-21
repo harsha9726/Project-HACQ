@@ -1,9 +1,10 @@
 {% extends 'form/start.html' %}
 {% block content %}
-
+<div class="col-lg-12 align-left">
 <form method="POST" action="{% url 'Criteria1_fill' %}">
+  {% csrf_token %}
 <h2>Criteria 1</h2>
-<p>1.1 Details about Academic Programmes</p>
+<p><b>1.1 Details about Academic Programmes</b></p>
 
 <table class="table">
 
@@ -16,76 +17,91 @@
     </tr>
     <tr>
     <th>PhD</th>
-    <td></td>
-    <td> </td>
-    <td> </td>
-    <td> </td>
+    <td>{{phd.Number_of_existing_programmes}}</td>
+    <td>{{phd.Number_of_programmes_added_during_year}}</td>
+    <td>{{phd.Number_of_self_financing_programmes}}</td>
+    <td>{{phd.Number_of_value_added_career_Oriented_programmes}}</td>
 
 
 
   </tr>
   <tr>
     <th>PG</th>
-    <td> </td>
-    <td> </td>
-    <td> </td>
-    <td> </td>
+    <td>{{pg.Number_of_existing_programmes}}</td>
+    <td>{{pg.Number_of_programmes_added_during_year}}</td>
+    <td>{{pg.Number_of_self_financing_programmes}}</td>
+    <td>{{pg.Number_of_value_added_career_Oriented_programmes}}</td>
   </tr>
 
 
   <tr>
     <th>UG</th>
-    <td> </td>
-    <td> </td>
-    <td> </td>
-    <td> </td>
+    <td>{{ug.Number_of_existing_programmes}}</td>
+    <td>{{ug.Number_of_programmes_added_during_year}}</td>
+    <td>{{ug.Number_of_self_financing_programmes}}</td>
+    <td>{{ug.Number_of_value_added_career_Oriented_programmes}}</td>
   </tr>
   <tr>
     <th>PG Diploma</th>
-    <td> </td>
-    <td> </td>
-    <td> </td>
-    <td> </td>
+    <td>{{pg_diploma.Number_of_existing_programmes}}</td>
+    <td>{{pg_diploma.Number_of_programmes_added_during_year}}</td>
+    <td>{{pg_diploma.Number_of_self_financing_programmes}}</td>
+    <td>{{pg_diploma.Number_of_value_added_career_Oriented_programmes}}</td>
   </tr>
     <tr>
     <th>Advanced Diploma</th>
-    <td> </td>
-    <td> </td>
-    <td> </td>
-    <td> </td>
+    <td>{{advanced_diploma.Number_of_existing_programmes}}</td>
+    <td>{{advanced_diploma.Number_of_programmes_added_during_year}}</td>
+    <td>{{advanced_diploma.Number_of_self_financing_programmes}}</td>
+    <td>{{advanced_diploma.Number_of_value_added_career_Oriented_programmes}}</td>
   </tr>
 
  <tr>
     <th>Diploma</th>
-    <td> </td>
-    <td> </td>
-    <td> </td>
-    <td> </td>
+    <td>{{diploma.Number_of_existing_programmes}}</td>
+    <td>{{diploma.Number_of_programmes_added_during_year}}</td>
+    <td>{{diploma.Number_of_self_financing_programmes}}</td>
+    <td>{{diploma.Number_of_value_added_career_Oriented_programmes}}</td>
   </tr>
  <tr>
     <th>Certificate</th>
-    <td> </td>
-    <td> </td>
-    <td> </td>
-    <td> </td>
+    <td>{{certificate.Number_of_existing_programmes}}</td>
+    <td>{{certificate.Number_of_programmes_added_during_year}}</td>
+    <td>{{certificate.Number_of_self_financing_programmes}}</td>
+    <td>{{certificate.Number_of_value_added_career_Oriented_programmes}}</td>
   </tr>
  <tr>
     <th>Others</th>
-    <td> </td>
-    <td> </td>
-    <td> </td>
-    <td> </td>
+    <td>{{others.Number_of_existing_programmes}}</td>
+    <td>{{others.Number_of_programmes_added_during_year}}</td>
+    <td>{{others.Number_of_self_financing_programmes}}</td>
+    <td>{{others.Number_of_value_added_career_Oriented_programmes}}</td>
   </tr>
  <tr>
-    <th>total</th>
-    <td> </td>
-    <td> </td>
-    <td> </td>
-    <td> </td>
+    <th>Total</th>
+    <td>{{total.Number_of_existing_programmes}}</td>
+    <td>{{total.Number_of_programmes_added_during_year}}</td>
+    <td>{{total.Number_of_self_financing_programmes}}</td>
+    <td>{{total.Number_of_value_added_career_Oriented_programmes}}</td>
   </tr>
+<br>
+  <tr>
+     <th>Interdisciplinary</th>
+     <td>{{interdisciplinary.Number_of_existing_programmes}}</td>
+     <td>{{interdisciplinary.Number_of_programmes_added_during_year}}</td>
+     <td>{{interdisciplinary.Number_of_self_financing_programmes}}</td>
+     <td>{{interdisciplinary.Number_of_value_added_career_Oriented_programmes}}</td>
+   </tr>
+   <tr>
+      <th>Innovative</th>
+      <td>{{innovative.Number_of_existing_programmes}}</td>
+      <td>{{innovative.Number_of_programmes_added_during_year}}</td>
+      <td>{{innovative.Number_of_self_financing_programmes}}</td>
+      <td>{{innovative.Number_of_value_added_career_Oriented_programmes}}</td>
+    </tr>
 </table>
-<p>1.2 i)Flexibility of the Curriculum:CBCS/Core/Elective option/Open options<br>
-ii)Pattern of programmes:</p>
+<p><b>1.2 i)Flexibility of the Curriculum:CBCS/Core/Elective option/Open options<br>
+ii)Pattern of programmes:</b></p>
 <table class="table">
 
   <tr>
@@ -93,15 +109,15 @@ ii)Pattern of programmes:</p>
     <th>Number of programmes</th>
   </tr>
   <tr>
-    <td>semester</td>
+    <th>semester</th>
     <td>{{criteria1.semester}}</td>
   </tr>
   <tr>
-    <td>Trimester</td>
+    <th>Trimester</th>
     <td>{{criteria1.trimester}}</td>
   </tr>
   <tr>
-    <td>Annual</td>
+    <th>Annual</th>
     <td>{{criteria1.annual}}</td>
   </tr>
   </table>
@@ -114,14 +130,15 @@ ii)Pattern of programmes:</p>
   <b>Mode of feedback:</b>{{criteria1.Mode_of_feedback}}
 
 
-  1.4 Whether there is any revision/update of regulation or syllabi,if yes,mention their salient aspects<br>
+  <b>1.4 Whether there is any revision/update of regulation or syllabi,if yes,mention their salient aspects</b><br>
   {{criteria1.revision_update_syllabi}}
   <br><br>
 
 
-  1.5 Any new Department/Centre introduced during the year.If yes,give details.<br>
+  <b>1.5 Any new Department/Centre introduced during the year.If yes,give details.</b><br>
   {{criteria1.Department_center}}
   <br><br>
+  <input type="submit" value="submit">
 </form>
-
+</div>
 {% endblock %}

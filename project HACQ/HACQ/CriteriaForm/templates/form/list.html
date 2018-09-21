@@ -1,5 +1,7 @@
 {% extends 'form/start.html' %}
 {% block content %}
+
+<div class="col-lg-12 text-center">
   {% for form in form1 %}
   <h1>Institution Details</h1>
 
@@ -122,5 +124,6 @@
   Amount {{ form.iqac_funding_amount }}
   {% endfor %}
 
+</div>
   <p>saved</p>
 {% endblock %}

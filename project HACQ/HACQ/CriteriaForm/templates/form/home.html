@@ -1,5 +1,9 @@
 {% extends 'form/start.html' %}
 {% block content %}
+<div class="col-lg-12 text-center">
+  <h1 class="mt-5">HACQ IQAC Form filling</h1>
+  <ul class="list-unstyled">
+
 <h1 style="align:center">Welcome to Hitam IQAC</h1>
 
   <a class="btn btn-secondary" href="{% url 'institute_fill' %}" role="button"><b>Institution Details</b></a>
@@ -13,6 +17,8 @@
   <a class="btn btn-secondary" href="{% url 'Criteria6_fill' %}" role="button"><b>Criteria 6</b></a>
   <a class="btn btn-secondary" href="{% url 'Criteria7_fill' %}" role="button"><b>Criteria 7</b></a>
 
+    </ul>
+  </div>
 
 
 {% endblock %}

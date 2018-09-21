@@ -1,3 +1,5 @@
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render,get_object_or_404,redirect
 from . import forms as f
 from django.urls import reverse
@@ -7,6 +9,20 @@ from . import models as m
 
 def index(request):
     return render(request, 'form/home.html')
+
+def signup(request):
+    if request.method == 'POST':
+        form = f.SignUpForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
+            return redirect('home')
+    else:
+        form = f.SignUpForm()
+    return render(request, 'form/signup.html', {'form': form})
 
 def institute_fill(request):
     if request.method == 'POST':
@@ -163,9 +179,10 @@ def Criteria1_fill(request):
     others = f.OthersForm()
     interdisciplinary = f.InterdisciplinaryForm()
     innovative = f.InnovativeForm()
+    total = f.TotalForm()
     forms = {'criteria1':criteria1, 'phd':phd, 'pg':pg, 'ug':ug, 'pg_diploma':pg_diploma,
     'advanced_diploma':advanced_diploma, 'diploma':diploma, 'certificate':certificate,
-    'others':others, 'interdisciplinary':interdisciplinary, 'innovative':innovative}
+    'others':others, 'interdisciplinary':interdisciplinary, 'innovative':innovative, 'total':total}
     return render(request, 'form/Criteria1.html', forms)
 
 def Criteria2_fill(request):

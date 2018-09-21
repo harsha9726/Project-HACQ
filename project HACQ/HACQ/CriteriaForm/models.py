@@ -6,6 +6,7 @@ from multiselectfield import MultiSelectField
 
 class Form(models.Model):
     create_date = models.DateTimeField('date created',auto_now_add=True,blank=True)
+    department = models.CharField(max_length=10,null=True)
 
 ####=============================Institutional Details models==========================#
 
