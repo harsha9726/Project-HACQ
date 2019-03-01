@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from CriteriaForm import views
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('',views.index, name='index'),
@@ -30,5 +31,7 @@ urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
     path('details/', views.form_details, name='details'),
     path('signup/', views.signup, name='signup'),
-    
+    path('login/', auth_views.LoginView.as_view(template_name='form/login.html'), name='login'),
+    path('logout/', auth_views.LogoutView.as_view(template_name='form/logout.html'), name='logout'),
+
 ]

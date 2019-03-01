@@ -1,8 +1,18 @@
+# from django.contrib.auth.models import AbstractUser
 from django.db import models
 from datetime import datetime
 from multiselectfield import MultiSelectField
 
 # Create your models here.
+
+#####=======================User Types====================####
+
+# class User(AbstractUser):
+#     is_hod = models.BooleanField(default=False)
+#     is_faculty = models.BooleanField(default=False)
+
+
+##=========================Form Department==============####
 
 class Form(models.Model):
     create_date = models.DateTimeField('date created',auto_now_add=True,blank=True)
